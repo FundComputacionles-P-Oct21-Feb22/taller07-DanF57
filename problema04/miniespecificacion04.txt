@@ -1,0 +1,64 @@
+/*Generar una solución que permita ingresar jugadores de fútbol; 
+por cada jugador se debe solicitar:
+Nombre el jugador
+Posición en el campo de juego
+Edad
+Estatura
+El ciclo de ingreso de información deberá terminar cuando el usuario lo decida.
+*/
+
+Inicio
+
+nombre		x(100)[{a-z},{A-Z},{BS}]
+posicion	x(100)[{a-z},{A-Z},{BS}]
+edad		i[0,n]
+lista		i[0,n] < -- 1
+estatura	d[0,n]
+cadena		x(n)[{a-z},{A-Z},{BS},{0-9}]
+cadena final	x(n)[{a-z},{A-Z},{BS},{0-9}]<-- ""
+salida		x(5)[{a-z},{A-Z},{BS}]
+
+Haga Hasta
+
+<< "Ingrese el nombre del jugador"
+>> nombre
+
+<< "Ingrese la posición en el campo de juego"
+>> posicion
+
+<< "Ingrese la edad del jugador"
+>> edad
+
+<< "Ingrese la estatura del jugador"
+>> estatura
+
+   cadena = cadena + lista + ". " + nombre + " -" 
+	+ posicion + "-, edad " + edad + ", estatura " + estatura + "\n"
+
+   lista = lista + 1
+
+<< "Escriba "si" para salir"
+>> salida
+
+Fin Haga_Hasta (salida == si OR salida == s)
+
+<< Listado de jugadores
+<< cadena
+
+Fin
+
+/*pantalla 
+Alexander 
+Arquero
+18
+1.80
+no
+xavier
+defensa
+24
+1.60
+si
+
+1. Alexander -Arquero- , edad 18, estatura 1.80
+2. xavier -defensa- , edad 24, estatura 1.60
+*/
